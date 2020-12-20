@@ -1,0 +1,50 @@
+@import "mixincontenedorgeneral";
+@import "mixinbarradenavegacion";
+@import "mixinpiedepagina";
+@import "mixincarruseldeproductos";
+@import "mixincontenedordeproductos";
+@import "mixincontendordeundeterminadotipodeproductos";
+@import "mixincartadeproducto";
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$paginadetrabajo: "paginaprincipal";
+
+/* Pagina Principal */
+
+@include contenedorgeneral($paginadetrabajo,5000px,5000px,4900px,3900px,5000px,4700px,4500px,4000px,true,false);
+
+/* ------------------------------------------------------- */
+
+/* Barra de navegacion */
+
+@include barradenavegacion($paginadetrabajo);
+
+/* ------------------------------------------------------- */
+
+/* Carrusel de imagenes de productos nuevos y productos en oferta */
+
+@include carruseldeproductos();
+
+/* ------------------------------------------------------- */
+
+/* Productos en venta de la pagina principal */
+
+@include contenedordeproductos("productosenventadepaginaprincipal",repeat(9, 1fr) 0.2fr);
+
+@include contendordeundeterminadotipodeproducto($paginadetrabajo,2fr,8fr,2fr,4fr 4fr,0.3fr,repeat(4,1fr));
+
+@include cartadeproducto($paginadetrabajo);
+
+/* ------------------------------------------------------- */
+
+/* Pie de pagina */
+
+@include piedepagina($paginadetrabajo, 4);
+
+/* ------------------------------------------------------- */
